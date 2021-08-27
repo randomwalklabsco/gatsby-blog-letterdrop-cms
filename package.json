@@ -1,36 +1,45 @@
 {
+  "name": "gatsby-blog-letterdrop-cms",
   "private": true,
-  "name": "minimal-blog",
-  "description": "Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.",
-  "version": "1.3.11",
-  "author": "LekoArts <hello@lekoarts.de>",
+  "description": "A starter for a blog powered by Gatsby and Letterdrop CMS",
+  "version": "0.1.0",
+  "author": "Parthi <Parthi@letterdrop.com>",
+  "bugs": {
+    "url": "https://github.com/randomwalklabsco/gatsby-blog-letterdrop-cms/issues"
+  },
+  "dependencies": {
+    "@letterdropcom/gatsby-source-letterdrop": "^1.0.23",
+    "gatsby": "^3.11.1",
+    "gatsby-plugin-feed": "^3.11.0",
+    "gatsby-plugin-image": "^1.12.0",
+    "gatsby-plugin-sharp": "^3.12.0",
+    "gatsby-source-filesystem": "^3.11.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0"
+  },
+  "devDependencies": {
+    "prettier": "2.3.2"
+  },
+  "homepage": "https://github.com/randomwalklabsco/gatsby-blog-letterdrop-cms#readme",
+  "keywords": [
+    "gatsby",
+    "gatsby-blog",
+    "gatsby-starter-blog"
+  ],
   "license": "0BSD",
-  "starter-name": "gatsby-starter-minimal-blog",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randomwalklabsco/gatsby-blog-letterdrop-cms.git"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "develop:cypress": "cross-env CYPRESS_SUPPORT=y yarn develop",
-    "build:cypress": "cross-env CYPRESS_SUPPORT=y yarn build",
-    "start": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
-  },
-  "dependencies": {
-    "@lekoarts/gatsby-theme-minimal-blog": "^3.0.0",
-    "gatsby": "^3.6.1",
-    "gatsby-omni-font-loader": "^1.3.1",
-    "gatsby-plugin-feed": "^3.6.0",
-    "gatsby-plugin-gatsby-cloud": "^2.6.1",
-    "gatsby-plugin-google-analytics": "^3.6.0",
-    "gatsby-plugin-manifest": "^3.6.0",
-    "gatsby-plugin-netlify": "^3.6.1",
-    "gatsby-plugin-offline": "^4.6.0",
-    "gatsby-plugin-sitemap": "^4.2.0",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.22",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }

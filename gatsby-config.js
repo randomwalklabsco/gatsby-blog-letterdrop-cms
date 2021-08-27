@@ -1,93 +1,23 @@
-require(`dotenv`).config()
-
-const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
-const googleAnalyticsTrackingId = process.env.GOOGLE_ANALYTICS_ID
-
 module.exports = {
   siteMetadata: {
-    // You can overwrite values here that are used for the SEO component
-    // You can also add new values here to query them like usual
-    // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/gatsby-config.js
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    title: `Letterdrop's Gatsby blog starter`,
+    author: {
+      name: `Letterdrop`,
+      summary: ` - Your content marketing on auto-pilot`,
+    },
+    description: `Increase organic traffic by 30% and generate leads with high-performing content. A workflow and platform to create SEO-optimized blog posts, newsletters, and email marketing campaigns. Manage the content creation process and access talent to write for you.`,
+    siteUrl: `https://www.glenwoodsystems.com/`,
   },
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
     {
-      resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-      // See the theme's README for all available options
+      resolve: `gatsby-source-filesystem`,
       options: {
-        navigation: [
-          {
-            title: `Blog`,
-            slug: `/blog`,
-          },
-          {
-            title: `About`,
-            slug: `/about`,
-          },
-        ],
-        externalLinks: [
-          {
-            name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
-          },
-          {
-            name: `Homepage`,
-            url: `https://www.lekoarts.de?utm_source=minimal-blog&utm_medium=Starter`,
-          },
-        ],
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: `gatsby-omni-font-loader`,
-      options: {
-        enableListener: true,
-        preconnect: [`https://fonts.gstatic.com`],
-        interval: 300,
-        timeout: 30000,
-        // If you plan on changing the font you'll also need to adjust the Theme UI config to edit the CSS
-        // See: https://github.com/LekoArts/gatsby-themes/tree/master/examples/minimal-blog#changing-your-fonts
-        web: [
-          {
-            name: `IBM Plex Sans`,
-            file: `https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap`,
-          },
-        ],
-      },
-    },
-    googleAnalyticsTrackingId && {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
-      },
-    },
-    `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#6B46C1`,
-        display: `standalone`,
-        icons: [
-          {
-            src: `/android-chrome-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`,
-          },
-          {
-            src: `/android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`,
-          },
-        ],
-      },
-    },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-gatsby-cloud`,
-    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -95,8 +25,8 @@ module.exports = {
           {
             site {
               siteMetadata {
-                title: siteTitle
-                description: siteDescription
+                title
+                description
                 siteUrl
                 site_url: siteUrl
               }
@@ -105,45 +35,50 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allPost } }) =>
-              allPost.nodes.map((post) => {
-                const url = site.siteMetadata.siteUrl + post.slug
-                const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">Keep reading</a>.</strong></div><br /> <br />`
-
-                return {
-                  title: post.title,
-                  date: post.date,
-                  excerpt: post.excerpt,
-                  url,
-                  guid: url,
-                  custom_elements: [{ "content:encoded": content }],
-                }
-              }),
+            serialize: ({ query: { site, allLetterdropPosts } }) => {
+              return allLetterdropPosts.nodes.map(node => {
+                return Object.assign(
+                  {},
+                  {
+                    title: node.title,
+                    date: node.publishedOn,
+                  },
+                  {
+                    description: node.subtitle || node.text,
+                    date: node.publishedOn,
+                    url: site.siteMetadata.siteUrl + node.url,
+                    guid: site.siteMetadata.siteUrl + node.url,
+                    custom_elements: [{ "content:encoded": node.text }],
+                  }
+                )
+              })
+            },
             query: `
               {
-                allPost(sort: { fields: date, order: DESC }) {
+                allLetterdropPosts(sort: { fields: [publishedOn], order: DESC }) {
                   nodes {
+                    id
+                    url
                     title
-                    date(formatString: "MMMM D, YYYY")
-                    excerpt
-                    slug
+                    publishedOn
+                    coverImage {
+                      url
+                    }
                   }
                 }
               }
             `,
-            output: `rss.xml`,
-            title: `Minimal Blog - @lekoarts/gatsby-theme-minimal-blog`,
+            output: "/rss.xml",
           },
         ],
       },
     },
-    shouldAnalyseBundle && {
-      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
+    {
+      resolve: "@letterdropcom/gatsby-source-letterdrop",
       options: {
-        analyzerMode: `static`,
-        reportFilename: `_bundle.html`,
-        openAnalyzer: false,
+        apikey: "RDPHXKG-J0K43ZD-NB8R2J0-8SEGRXQ", // sample Letterdrop publication key
+        version: "v1",
       },
     },
-  ].filter(Boolean),
+  ],
 }

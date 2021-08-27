@@ -1,277 +1,237 @@
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://minimal-blog.lekoarts.de">
-    <img alt="LekoArts" src="https://img.lekoarts.de/gatsby/gatsby-site-illustration.png" />
+  <a href="https://www.gatsbyjs.com">
+    <img alt="Gatsby" src="https://letterdrop.com/images/logo.svg"  width="60" />
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby Starter: Minimal Blog
+  Letterdrop's Gatsby blog starter
 </h1>
 
-<p align="center">
-  <a href="https://github.com/LekoArts/gatsby-starter-minimal-blog/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-0BSD-blue.svg" alt="Minimal Blog is released under the 0BSD license." />
-  </a>
-  <a href="https://github.com/sponsors/LekoArts">
-    <img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/LekoArts">
-  </a>
-  <a href="https://www.lekoarts.de?utm_source=minimal-blog&utm_medium=Starter">
-    <img alt="Website" src="https://img.shields.io/badge/-website-blue">
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=lekoarts_de">
-    <img src="https://img.shields.io/twitter/follow/lekoarts_de.svg?label=Follow%20@lekoarts_de" alt="Follow @lekoarts_de" />
-  </a>
-</p>
+## **Overview**
+Kick off your project with this blog boilerplate. In this guide you’ll be setting up a CMS powered Gatsby site that uses Letterdrop as its content management system.
 
-Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting. Using the Gatsby Theme [`@lekoarts/gatsby-theme-minimal-blog`](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog).
+For this tutorial, you’ll need Letterdrop api-key of your publication which you can get by following instructions at [Finding and using your API key](https://api.letterdrop.com/find-your-api-key).
 
-[**Demo Website**](https://minimal-blog.lekoarts.de)
+This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-Also be sure to check out other [Free & Open Source Gatsby Themes](https://themes.lekoarts.de) and my [Personal Website](https://www.lekoarts.de?utm_source=minimal-blog&utm_medium=Starter).
+### **Prerequisites**
 
-## ✨ Features
+- You have a Letterdrop publication created. If not, create one using instructions [here](https://help.letterdrop.co/Create-a-publication-13c9df2117004cdb80f539a647e6483f).
+- You have a pre-existing Gatsby project that uses gatsby-source-letterdrop on GitHub or GitLab. If not you can start with checking out [Letterdrop Gatsby Blog Starter](https://github.com/randomwalklabsco/gatsby-blog-letterdrop-cms)
+- You are familiar with creating a Gatsby Cloud site from an existing GitHub or GitLab repository. Read [this guide](https://support.gatsbyjs.com/hc/en-us/articles/360059253654) for instructions on how to do this.
 
-- MDX
-- Fully customizable through the usage of Gatsby Themes (and Theme UI)
-- Light Mode / Dark Mode
-- Typography driven, minimal style
-- Tags/Categories support
-- Code highlighting with [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer) and [react-live](https://github.com/FormidableLabs/react-live) support. Also allows adding line numbers, line highlighting, language tabs, and file titles.
-- RSS Feed for blog posts
-- Google Analytics Support
-- SEO (Sitemap, OpenGraph tags, Twitter tags)
-- Offline Support & WebApp Manifest
 
-## 🚀 Getting Started
+### Creating new site using Letterdrop's starter template:
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/LekoArts/gatsby-starter-minimal-blog)
+***Step 1***
 
-### 1. **Create a Gatsby site.**
+Clone the template project from [here](https://github.com/randomwalklabsco/gatsby-blog-letterdrop-cms) and run ``npm install`` in the root directory. 
 
-Use `git` to clone the site and navigate into it:
+***Step 2***
 
-```sh
-git clone https://github.com/LekoArts/gatsby-starter-minimal-blog project-name
-cd project-name
-```
+Go to ``gatsby-config.js`` file and replace the sample API key with your publication API key. You can leave it as it is to see how the template will look like when you run it.
 
-### 2. **Install dependencies.**
+***Step 3***
 
-If you use npm 7 or above use the `--legacy-peer-deps` flag. If you use npm 6 you can use `npm install`.
+Inside root directory run ``npm run develop`` to start building the project. Once build you can open http://localhost:8000 (or if you prompted for using another port replace that value with 8000) in your browser to see the template result
 
-```sh
-npm install --legacy-peer-deps
-```
+### Creating new site using Gatsby's starter blog template:
 
-### 3. **Open the code and start customizing!**
+When you choose to create a new site using Gatsby's starter template, you have to do changes for the configuration to connect to Letterdrop CMS.
 
-Start the site by running `npm run develop`.
 
-Your site is now running at `http://localhost:8000`!
+- Add Letterdrop's source plugin into ``gatsby-config.js`` as following,
 
-If you want to learn more about how you can use a Gatsby starter that is configured with a Gatsby theme, you can check out this [shorter](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/using-a-gatsby-theme/) or [longer](https://www.gatsbyjs.com/tutorial/using-a-theme/) tutorial. The tutorials don't exactly apply to this starter however the concepts are the same.
-
-## 📝 Using and modifying this starter
-
-**Important Note:** Please read the guide [Shadowing in Gatsby Themes](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/) to understand how to customize the underlying theme!
-
-This starter creates a new Gatsby site that installs and configures the theme [`@lekoarts/gatsby-theme-minimal-blog`](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog).
-
-Have a look at the theme's README and files to see what options are available and how you can shadow the various components including Theme UI. Generally speaking you will want to place your files into `src/@lekoarts/gatsby-theme-minimal-blog/` to shadow/override files. The Theme UI config can be configured by shadowing its files in `src/gatsby-plugin-theme-ui/`.
-
-### Code Highlighting
-
-Since the underlying theme ships with [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer) and [react-live](https://github.com/FormidableLabs/react-live) certain additional features were added to code blocks. You can find an overview / usage example in the [example repository](https://github.com/LekoArts/gatsby-themes/tree/master/examples/minimal-blog/content/posts/fantastic-beasts-and-where-to-find-them/index.mdx)! If you want to change certain code styles or add additional language tabs, you need to shadow the file `src/@lekoarts/gatsby-theme-minimal-blog/styles/code.js`.
-
-**Language tabs:**
-
-When you add a language (such as e.g. `js` or `javascript`) to the code block, a little tab will appear at the top left corner.
-
-````
-```js
-// code goes here
-```
-````
-
-**Code titles:**
-
-You can display a title (e.g. the file path) above the code block.
-
-````
-```jsx:title=your-title
-// code goes here
-```
-````
-
-Or without a specific language:
-
-````
-```:title=your-title
-// code goes here
-```
-````
-
-**Line highlighting:**
-
-You can highlight single or multiple (or both) lines in a code block. You need to add a language.
-
-````
-```js {2,4-5}
-const test = 3
-const foo = 'bar'
-const harry = 'potter'
-const hermione = 'granger'
-const ron = 'weasley'
-```
-````
-
-**Hide line numbers:**
-
-If you want to hide line numbers you can either globally disable them (see Theme options) or on a block-by-block basis. You can also combine that with the other attributes.
-
-````
-```noLineNumbers
-// code goes here
-```
-````
-
-**react-live:**
-
-Add `react-live` to the code block (and render the component) to see a preview below it.
-
-````
-```js react-live
-const onClick = () => {
-  alert("You opened me");
-};
-render(<button onClick={onClick}>Alohomora!</button>);
-```
-````
-
-### Adding content
-
-#### Adding a new blog post
-
-New blog posts will be shown on the index page (the three most recent ones) of this theme and on the blog overview page. They can be added by creating MDX files inside `content/posts`. General setup:
-
-1. Create a new folder inside `content/posts`
-1. Create a new `index.mdx` file, and add the frontmatter
-1. Add images to the created folder (from step 1) you want to reference in your blog post
-1. Reference an image as your `banner` in the frontmatter
-1. Write your content below the frontmatter
-
-**Frontmatter reference:**
-
-```md
----
-title: Introduction to "Defence against the Dark Arts"
-date: 2019-11-07
-description: Defence Against the Dark Arts (abbreviated as DADA) is a subject taught at Hogwarts School of Witchcraft and Wizardry and Ilvermorny School of Witchcraft and Wizardry.
-tags:
-  - Tutorial
-  - Dark Arts
-banner: ./defence-against-the-dark-arts.jpg
----
-```
-
-**The fields `description` and `banner` are optional!** If no description is provided, an excerpt of the blog post will be used. If no banner is provided, the default `siteImage` (from `siteMetadata`) is used.
-
-The `date` field has to be written in the format `YYYY-MM-DD`!
-
-#### Adding a new page
-
-Additional pages can be created by placing MDX files inside `contents/pages`, e.g. an "About" or "Contact" page. You'll manually need to link to those pages, for example by adding them to the navigation (in `navigation` option of the theme). General instructions:
-
-1. Create a new folder inside `content/pages`
-1. Create a new `index.mdx` file, and add the frontmatter
-1. Write your content below the frontmatter
-1. Optionally add files/images to the folder you want to reference from the page
-
-**Frontmatter reference:**
-
-```md
----
-title: About
-slug: "/about"
----
-```
-
-#### Changing the "Hero" text
-
-To edit the hero text ("Hi, I'm Lupin...), create a file at `src/@lekoarts/gatsby-theme-minimal-blog/texts/hero.mdx` to edit the text.
-
-#### Changing the "Projects" part
-
-To edit the projects part below "Latest posts", create a file at `src/@lekoarts/gatsby-theme-minimal-blog/texts/bottom.mdx` to edit the contents.
-
-### Changing your fonts
-
-By default, the underlying theme and thus this starter uses "IBM Plex Sans" as its font. It's used throughout the site and set as a `font-family` on the `html` element.
-
-If you want to change your default font or add any additional fonts, you'll need to change two things:
-
-1. The configuration for `gatsby-omni-font-loader` => Responsible for loading the font CSS files
-1. The Theme UI config and its `fonts` key (see [Theme UI Typography Docs](https://theme-ui.com/theming#typography)) => Responsible for setting the `font-family` in the example
-
-After adjusting the configuration for `gatsby-omni-font-loader` you'll need to shadow the theme's Theme UI config and overwrite the `fonts` key. For the sake of this explanation it's assumed that you replaced "IBM Plex Sans" with "Roboto Mono".
-
-Create a file at `src/gatsby-plugin-theme-ui/index.js` with the following contents:
-
-```js
-import { merge } from "theme-ui";
-import originalTheme from "@lekoarts/gatsby-theme-minimal-blog/src/gatsby-plugin-theme-ui/index";
-
-const theme = merge(originalTheme, {
-  fonts: {
-    body: `"Roboto Mono", monospace`,
+``` shell
+{
+  resolve: "@letterdropcom/gatsby-source-letterdrop",
+  options: {
+    apikey: "XXXXXX-XXXXXX", // sample Letterdrop publication key
+    version: "v1",
   },
-});
-
-export default theme;
+}
 ```
-
-As defined in the [Theme Specification](https://theme-ui.com/theme-spec#typography) `body` is the default body font family.
-
-**Another example:** You didn't replace "IBM Plex Sans" but added "Roboto Mono" additionally since you want to use it for your headings.
-
-Then you'd not overwrite `body` but add a `heading` key:
-
-```js
-import { merge } from "theme-ui";
-import originalTheme from "@lekoarts/gatsby-theme-minimal-blog/src/gatsby-plugin-theme-ui/index";
-
-const theme = merge(originalTheme, {
-  fonts: {
-    heading: `"Roboto Mono", monospace`,
-  },
-});
-
-export default theme;
+- Run ``npm install`` to install packages
+- Install Letterdrop source plugin using ``npm i @letterdropcom/gatsby-source-letterdrop --save``
+- You can run graphql queries to fetch data from plugin as following,
+```shell
+{
+  allLetterdropPosts {
+    nodes {
+      url
+      title
+      ...
+      coverImage {
+        url
+        extension
+        ...
+      }
+      publication {
+        customDomain {
+          domain
+          ...
+        }
+        _id
+        domain
+      }
+    }
+  }
+}
 ```
+- You can apply filters to fetch required post content alone as following,
+``` shell
+{
+  allLetterdropPosts(filter: {url: {eq: "adapt-your-writing"}}) {
+    ....
+  }
+}
+```
+- lets create a blog home:
+``` shell
+import * as React from "react"
+import { Link, graphql } from "gatsby"
 
-### Change your `static` folder
+import Bio from "../components/bio"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
-The `static` folder contains the icons, social media images and robots.txt. Don't forget to change these files, too!
+const BlogIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const posts = data.allLetterdropPosts.nodes
 
-## 🤔 Questions or problems?
+  if (posts.length === 0) {
+    return (
+      <Layout location={location} title={siteTitle}>
+        <Seo title="All posts" />
+        <Bio />
+        <p>
+          No blog posts found. Add markdown posts to "content/blog" (or the
+          directory you specified for the "gatsby-source-filesystem" plugin in
+          gatsby-config.js).
+        </p>
+      </Layout>
+    )
+  }
 
-Please open up an issue on the main repository: [LekoArts/gatsby-themes](https://github.com/LekoArts/gatsby-themes). Thanks!
+  return (
+    <Layout location={location} title={siteTitle}>
+      <Seo title="All posts" />
+      <Bio />
+      <ol style={{ listStyle: `none` }}>
+        {posts.map(post => {
+          const title = post.title || post.url
 
-## 🎓 Learning Gatsby
+          return (
+            <li key={post.url}>
+              <article
+                className="post-list-item"
+                itemScope
+                itemType="http://schema.org/Article"
+              >
+                <header>
+                  <h2>
+                    <Link to={post.url} itemProp="url">
+                      <span itemProp="headline">{title}</span>
+                    </Link>                    
+                  </h2>
+                  <small>{post.publishedOn}</small>
+                  <small>
+                    {post.postAuthor ? " - by " + post.postAuthor.name : ""}
+                  </small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: post.subtitle || post.text,
+                    }}
+                    itemProp="description"
+                  />
+                </section>
+              </article>
+            </li>
+          )
+        })}
+      </ol>
+    </Layout>
+  )
+}
 
-Looking for more guidance? Full documentation for Gatsby lives [on Gatsby's website](https://www.gatsbyjs.com/).
+export default BlogIndex
 
-### Themes
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allLetterdropPosts(sort: { fields: [publishedOn], order: DESC }, filter: {}) {
+      nodes {
+        id
+        url
+        title
+        subtitle
+        text
+        publishedOn(formatString: "MMMM DD YYYY")
+        coverImage {
+          url
+        }
+      }
+    }
+  }
+`
 
-- To learn more about Gatsby themes specifically, we recommend checking out the [theme docs](https://www.gatsbyjs.com/docs/themes/).
+```
+- run ``npm run develop`` to build the project once you created a bloghome using graphql query.
 
-### General
+<br /><br />
 
-- **For most developers, I recommend starting with the [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/docs/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+### **Configuring webhooks**
 
-- **To dive straight into code samples, head [to Gatsby's documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Reference Guides_ and _Gatsby API_ sections in the sidebar.
+Webhooks are a powerful feature that allow you to notify your internal systems whenever content in Letterdrop has changed. Your host platform needs to be notified so that Gatsby can create fresh pages from the new data.
 
-## 🌟 Supporting me
+To get the webhooks of your gatsby site:
 
-Thanks for using this project! I'm always interested in seeing what people do with my projects, so don't hesitate to tag me on [Twitter](https://twitter.com/lekoarts_de) and share the project with me.
+- Open site settings from your Gatsby site dashboard 
+<br /><br />
+![Gatsby Site Settings](./src/images/GatsbySiteSettings.png)
+<br /><br />
+- Click on General > Webhook from left navigation menu
+<br /><br />
+![Gatsby Site Settings](./src/images/GatsbyWebhookNavigation.png)
+<br /><br />
+- Copy "Preview Webhook" URL and proceed to publication settings in Letterdrop
+<br /><br />
+![Gatsby Site Settings](./src/images/WebhookUrlsSection.png)
+<br /><br />
+- Scroll done to Gatsby Webhook section and paste into respective field for preview webhook
+<br /><br />
+![Gatsby Site Settings](./src/images/WebhookConfigurationLetterdrop.png)
+<br /><br />
+- Repeat aboce 2 steps for "Build Webhook" and save the settings in Letterdrop
 
-Please star this project, share it on Social Media or consider supporting me on [Patreon](https://www.patreon.com/lekoarts) or [GitHub Sponsor](https://github.com/sponsors/LekoArts)!
+<br /><br />
+
+Gatsby will automatically start building project once you pushed changes into your git repository. Setting up webhooks will allow you to maintain latest data available in your website, fetching it from Letterdrop CMS whenever you publish/update/unpublish/delete posts from your publication.
+
+
+
+### **Testing with GraphiQL**
+
+You can test out your GraphQL queries with GraphiQL (a GraphQL debugger) fire up GraphiQL on http://localhost:8000/___graphql
+
+Once GraphiQL is open, paste the query below :
+```shell
+{
+  allLetterdropPosts {
+    nodes {
+      url
+      title
+      subtitle
+      text
+    }
+  }
+}
+```
